@@ -2,6 +2,12 @@
 {
 	public abstract class BaseController
 	{
+		protected UIInterface UIInterface;
+		protected BaseController()
+		{
+			UIInterface = new UIInterface();
+		}
+
 		public bool IsActive { get; private set; }
 
 		public virtual void On()
