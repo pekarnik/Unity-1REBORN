@@ -145,7 +145,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   _speed: 10
   _batteryChargeMax: 10
-  _intensity: 5
+  _intensity: 10
 --- !u!108 &59176591
 Light:
   m_ObjectHideFlags: 0
@@ -158,7 +158,7 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
-  m_Range: 10
+  m_Range: 30
   m_SpotAngle: 40.1
   m_CookieSize: 10
   m_Shadows:
