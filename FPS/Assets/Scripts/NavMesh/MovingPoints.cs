@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 namespace FPS
@@ -14,6 +15,9 @@ namespace FPS
 		private readonly Color _c = Color.red;
 		private readonly int lengthOfLineRenderer = 2;
 		private LineRenderer _lineRenderer;
+
+		private NavMeshPath _path;
+		private Vector3 _startPoint;
 		private void Start()
 		{
 			_lineRenderer = gameObject.AddComponent<LineRenderer>();
@@ -22,6 +26,8 @@ namespace FPS
 			_lineRenderer.SetColors(_c, _c1);
 			_lineRenderer.SetVertexCount(lengthOfLineRenderer);
 			_lineRenderer.SetPosition(0,_agent.transform.position);
+			_startPoint = _agent.transform.position;
+			_path = new NavMeshPath();
 		}
 		private void Update()
 		{
@@ -42,6 +48,10 @@ namespace FPS
 				_position = hitInfo.point;
 			}
 			_lineRenderer.SetPosition(1, _position);
+			if(_agent.agent.hasPath)
+			{
+				GotoNextPoint();
+			}
 		}
 		private void DrawPoint(Vector3 position)
 		{
